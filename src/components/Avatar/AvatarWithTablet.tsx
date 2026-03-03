@@ -14,7 +14,7 @@ const AvatarWithTablet = () => {
       className="bottom-0 left-0 hidden md:inline-block md:absolute -z-10"
     >
       <Image
-        src="/assets/avatar_with_tablet.png"
+        src="/assets/avatar_with_tablet.webp"
         width={400}
         height={400}
         priority

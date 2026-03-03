@@ -32,7 +32,7 @@ export const cardContent = [
     title: "Local Eats",
     description:
       "Discover and rate local eateries through community-driven insights and reviews.",
-    imageUrl: "/assets/project-1.png",
+    imageUrl: "/assets/project-1.wepb",
     skills: [
       {
         icon: <SiHtml5 size="40" />,
@@ -56,7 +56,7 @@ export const cardContent = [
     title: "Eco-Tracker",
     description:
       "Track and reduce your ecological footprint with real-time environmental analytics.",
-    imageUrl: "/assets/project-2.png",
+    imageUrl: "/assets/project-2.webp",
     skills: [
       {
         icon: <SiCss3 size="40" />,
@@ -80,7 +80,7 @@ export const cardContent = [
     title: "Freelance Hub",
     description:
       "Connects creatives with opportunities; a hub for freelance work and collaboration.",
-    imageUrl: "/assets/project-3.png",
+    imageUrl: "/assets/project-3.webp",
     skills: [
       {
         icon: <SiAngular size="40" />,
@@ -104,7 +104,7 @@ export const cardContent = [
     title: "Health Companion",
     description:
       "Your personal health assistant for fitness tracking and wellness guidance.",
-    imageUrl: "/assets/project-4.png",
+    imageUrl: "/assets/project-4.webp",
     skills: [
       {
         icon: <SiVuedotjs size="40" />,
@@ -128,7 +128,7 @@ export const cardContent = [
     title: "Artisan Gallery",
     description:
       "A virtual marketplace celebrating unique, handcrafted goods from talented artisans.",
-    imageUrl: "/assets/project-5.png",
+    imageUrl: "/assets/project-5.webp",
     skills: [
       {
         icon: <SiPhp size="40" />,

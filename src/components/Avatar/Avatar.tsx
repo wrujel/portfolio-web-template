@@ -14,7 +14,7 @@ const Avatar = () => {
       exit="hidden"
     >
       <Image
-        src="/assets/about.png"
+        src="/assets/about.webp"
         priority
         fill
         alt="Avatar"

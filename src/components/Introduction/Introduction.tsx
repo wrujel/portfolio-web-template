@@ -17,7 +17,7 @@ const Introduction = () => {
             exit="hidden"
           >
             <Image
-              src="/assets/avatar.png"
+              src="/assets/avatar.webp"
               priority
               width="800"
               height="600"
