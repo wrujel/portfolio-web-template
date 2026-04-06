@@ -3,9 +3,9 @@
 [tests-link]: https://github.com/wrujel/monitor-tests
 
 [demo-link]: https://portfolio-web-eight-tau.vercel.app/
-[status]: https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fwrujel%2Fmonitor-repos%2Fmain%2Fdata%2Fportfolio-web.json
-[deploy]: https://img.shields.io/github/deployments/wrujel/portfolio-web/production?style=for-the-badge&label=Deploy
-[tests]: https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fwrujel%2Fmonitor-tests%2Fmain%2Fdata%2Fportfolio-web.json
+[status]: https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fwrujel%2Fmonitor-repos%2Fmain%2Fdata%2Fportfolio-web-template.json
+[deploy]: https://img.shields.io/github/deployments/wrujel/portfolio-web-template/production?style=for-the-badge&label=Deploy
+[tests]: https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fwrujel%2Fmonitor-tests%2Fmain%2Fdata%2Fportfolio-web-template.json
 
 <div align='center'>
 
