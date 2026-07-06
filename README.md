@@ -40,7 +40,7 @@
 <div align='center'>
   A modern portfolio website built with Next.js 14, TypeScript, and Tailwind CSS. Features smooth page transitions, interactive particle animations, service showcases, project galleries, customer testimonials, and a contact form.
 
-  [Demo]({{DEMO_URL}}) · [Report issue](/issues) · [Suggest something](/issues)
+  [Demo][demo-link] · [Report issue](/issues) · [Suggest something](/issues)
 </div>
 
 ## Table of Contents
