@@ -32,6 +32,6 @@ export const socialNetworks = [
   },
   {
     logo: <RiBehanceLine size="35" />,
-    src: "#!",
+    src: `https://www.behance.net/${YOUR_NICK_HERE}`,
   },
 ];

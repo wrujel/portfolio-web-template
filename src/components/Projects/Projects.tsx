@@ -19,7 +19,7 @@ const Projects = () => {
   };
 
   if (isMobile()) {
-    scroll((progress) => {
+    scroll((progress: number) => {
       if (progress < 0.2) setIndex(0);
       else if (progress > 0.2 && progress < 0.4) setIndex(1);
       else if (progress > 0.4 && progress < 0.6) setIndex(2);
@@ -39,25 +39,33 @@ const Projects = () => {
     },
     collapsed: {
       width: "200px",
-      opacity: 0.3,
+      opacity: 0.55,
     },
   };
 
   return (
     <>
-      <div className="relative min-w-min flex flex-col justify-center gap-10 pb-32 md:min-h-screen mt-36 md:mt-0 place-items-center">
+      <div className="relative flex flex-col justify-center min-w-min gap-10 pb-32 md:min-h-screen mt-36 md:mt-0 place-items-center">
         <div className="mx-4 md:mr-48 xl:mx-4">
-          <motion.h1
-            variants={fadeIn("left", 0.5)}
+          <motion.div
+            variants={fadeIn("up", 0.2)}
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="my-5 text-3xl text-center md:text-4xl font-semibold"
+            className="my-5 text-center"
           >
-            My latest <span className="text-secondary">Projects</span>
-          </motion.h1>
+            <p className="inline-block px-3 py-1 mb-4 font-mono text-xs tracking-widest uppercase border border-dim bg-panel text-neon">
+              &gt; SELECTED_WORK
+            </p>
+            <h1 className="font-display text-5xl leading-[0.9] md:text-6xl text-neon [text-shadow:0_0_12px_rgba(0,255,102,0.45)]">
+              MY LATEST{" "}
+              <span className="text-amber [text-shadow:0_0_12px_rgba(255,176,0,0.45)]">
+                [PROJECTS]
+              </span>
+            </h1>
+          </motion.div>
           <motion.div
-            variants={fadeIn("up", 0.5)}
+            variants={fadeIn("up", 0.35)}
             initial="hidden"
             animate="show"
             exit="hidden"
@@ -66,25 +74,30 @@ const Projects = () => {
             {cardContent.map(({ id, title, description, imageUrl, skills }) => (
               <div key={id}>
                 <motion.div
-                  className={`cursor-pointer h-[75svh] md:h-[600px] lg:h-[750px] bg-cover bg-center bg-no-repeat rounded-[20px] ${
-                    index === id && "expanded"
-                  } `}
+                  className={`cursor-pointer h-[75svh] md:h-[600px] lg:h-[750px] bg-cover bg-center bg-no-repeat border relative bg-panel ${
+                    index === id
+                      ? "border-neon shadow-glow"
+                      : "border-dim"
+                  }`}
                   initial={{ opacity: 1 }}
                   variants={cardVariants}
                   animate={id === index ? "expanded" : "collapsed"}
                   exit={{
                     opacity: 1,
                   }}
-                  transition={{ duration: 0.2 }}
-                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                  whileTap={{ scale: 0.97 }}
                   onHoverStart={() => handleHover(id)}
                   style={{
                     backgroundImage: `url(${imageUrl})`,
                   }}
                 >
+                  <span className="absolute px-2 py-1 font-mono text-xs border top-2 left-2 border-neon bg-panel text-neon shadow-glow-sm">
+                    [P_{String(id + 1).padStart(2, "0")}]
+                  </span>
                   <div className="flex flex-col justify-end h-full">
-                    <div className="rounded-b-[20px] bg-gray-800 bg-opacity-80 min-h-[100px] flex flex-col items-center justify-center px-3 pt-4 pb-5">
-                      <h2 className="text-xl font-semibold text-center text-white">
+                    <div className="bg-panel border-t border-dim min-h-[100px] flex flex-col items-center justify-center px-3 pt-4 pb-5">
+                      <h2 className="font-mono text-xl font-bold tracking-widest text-center uppercase text-neon">
                         {title}
                       </h2>
                       {id === index && (
@@ -92,14 +105,21 @@ const Projects = () => {
                           initial={{ display: "none", opacity: 0, scale: 0.2 }}
                           animate={{ display: "block", opacity: 1, scale: 0.9 }}
                           transition={{
-                            duration: 0.1,
-                            delay: 0.2,
+                            duration: 0.15,
+                            delay: 0.15,
                           }}
                         >
-                          <p className="text-center">{description}</p>
-                          <div className="flex justify-center gap-5 mt-3">
+                          <p className="mt-1 text-sm text-center text-[#CFFFD9]/80">
+                            {description}
+                          </p>
+                          <div className="flex flex-wrap justify-center gap-2 mt-3">
                             {skills.map((data, index) => (
-                              <p key={index}>{data.icon}</p>
+                              <span
+                                key={index}
+                                className="flex items-center justify-center transition-colors duration-150 border w-9 h-9 border-dim bg-term hover:border-neon hover:text-neon [&>svg]:h-5 [&>svg]:w-5"
+                              >
+                                {data.icon}
+                              </span>
                             ))}
                           </div>
                         </motion.div>
@@ -113,14 +133,13 @@ const Projects = () => {
         </div>
       </div>
       <motion.div
-        variants={fadeIn("right", 0.5)}
+        variants={fadeIn("left", 0.5)}
         initial="hidden"
         animate="show"
         exit="hidden"
-        className="absolute right-16 bottom-16 hidden md:inline-block"
+        className="absolute hidden px-3 py-1 font-mono text-xs uppercase border right-16 bottom-6 md:inline-block border-dim bg-panel text-neon/70"
       >
-        Made with ❤️ by Code
-        <span className="text-secondary font-semibold">Dev</span>
+        {"//"} made with ❤ by CodeDev
       </motion.div>
     </>
   );

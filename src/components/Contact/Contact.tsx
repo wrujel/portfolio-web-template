@@ -2,70 +2,94 @@
 
 import { fadeIn } from "@/utils/motionTransition";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const Contact = () => {
   return (
     <div className="w-full justify-center items-center min-h-screen px-6 mx-auto align-middle mt-40 md:mt-0 md:flex md:max-w-4xl pb-36 md:pb-0 gap-6">
       <motion.div
-        variants={fadeIn("right", 0.5)}
+        variants={fadeIn("right", 0.2)}
         initial="hidden"
         animate="show"
         exit="hidden"
         className="md:w-[40vw] flex justify-center items-center"
       >
-        <h1 className="mb-6 text-4xl font-medium text-center md:text-left">
-          Let&apos;s chat. <br />
-          <span className="text-secondary">Tell me about your</span> <br />
-          <span className="text-secondary">project.</span>
-        </h1>
+        <div>
+          <p className="inline-block px-3 py-1 mb-6 font-mono text-xs tracking-widest uppercase border border-dim bg-panel text-neon">
+            &gt; CONTACT
+          </p>
+          <h1 className="mb-6 font-display text-5xl md:text-6xl leading-[0.9] text-center md:text-left text-neon [text-shadow:0_0_12px_rgba(0,255,102,0.45)]">
+            LET&apos;S CHAT. <br />
+            <span className="text-amber [text-shadow:0_0_12px_rgba(255,176,0,0.45)]">
+              [TELL ME ABOUT
+            </span>{" "}
+            <br />
+            <span className="text-amber [text-shadow:0_0_12px_rgba(255,176,0,0.45)]">
+              YOUR PROJECT.]
+            </span>
+          </h1>
+        </div>
       </motion.div>
       <motion.div
-        variants={fadeIn("left", 0.5)}
+        variants={fadeIn("left", 0.3)}
         initial="hidden"
         animate="show"
         exit="hidden"
         className="md:w-[40vw] flex justify-center items-center"
       >
-        <div className="w-full max-w-md bg-[rgba(0,0,0,0.2)] p-4 rounded-lg shadow sm:p-6 md:p-8 ">
-          <form className="space-y-6">
-            <h5 className="text-2xl font-medium text-white-900">
-              Send us a message
+        <div className="w-full max-w-md p-4 hud shadow-glow sm:p-6 md:p-8">
+          <form className="space-y-5">
+            <h5 className="font-mono text-xl font-bold tracking-widest uppercase text-neon">
+              &gt; SEND_MESSAGE
             </h5>
             <div>
-              <label htmlFor="name">Name</label>
+              <label
+                htmlFor="name"
+                className="block mb-1 font-mono text-xs tracking-widest uppercase text-neon/70"
+              >
+                &gt; NAME:
+              </label>
               <input
                 type="text"
                 name="name"
-                className="bg-gray-600 border border-gray-500 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 placeholder-gray-400"
+                className="block w-full p-2.5 font-mono text-sm border border-dim bg-term text-[#CFFFD9] placeholder-[#CFFFD9]/30 caret-neon focus:outline-none focus:border-neon focus:shadow-glow-sm transition-all"
                 placeholder="Full name"
                 required
               />
             </div>
             <div>
-              <label htmlFor="email">Email address</label>
+              <label
+                htmlFor="email"
+                className="block mb-1 font-mono text-xs tracking-widest uppercase text-neon/70"
+              >
+                &gt; EMAIL:
+              </label>
               <input
                 type="email"
                 name="email"
-                className="bg-gray-600 border border-gray-500 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 placeholder-gray-400"
+                className="block w-full p-2.5 font-mono text-sm border border-dim bg-term text-[#CFFFD9] placeholder-[#CFFFD9]/30 caret-neon focus:outline-none focus:border-neon focus:shadow-glow-sm transition-all"
                 placeholder="name@company.com"
                 required
               />
             </div>
             <div>
-              <p className="text-sm">Tell us more about your project*</p>
+              <label
+                htmlFor="message"
+                className="block mb-1 font-mono text-xs tracking-widest uppercase text-neon/70"
+              >
+                &gt; PROJECT_DETAILS:*
+              </label>
               <textarea
                 name="message"
-                className="h-[150px] m-0 bg-gray-600 border border-gray-500 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 placeholder-gray-400"
+                className="h-[130px] w-full p-2.5 font-mono text-sm border border-dim bg-term text-[#CFFFD9] placeholder-[#CFFFD9]/30 caret-neon focus:outline-none focus:border-neon focus:shadow-glow-sm transition-all"
                 placeholder="Your message"
                 required
               />
             </div>
             <button
               type="submit"
-              className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+              className="px-6 py-3 font-mono text-sm font-bold uppercase transition-all duration-150 border border-neon text-neon hover:bg-neon hover:text-term hover:shadow-glow"
             >
-              Send message
+              &gt; EXECUTE
             </button>
           </form>
         </div>

@@ -1,4 +1,6 @@
-export const transitionVariantsPage = {
+import type { Target, Transition, Variants } from "framer-motion";
+
+export const transitionVariantsPage: Variants = {
   initial: {
     x: "100%",
     width: "100%",
@@ -13,16 +15,20 @@ export const transitionVariantsPage = {
   },
 };
 
-export const motionTransitionAbout = {
+export const motionTransitionAbout: {
+  initial: Target;
+  transition: Transition;
+  animate: Target;
+} = {
   initial: {
     opacity: 0,
-    bottom: "5rem",
-    transform: "translateY(200px)",
+    bottom: "2rem",
+    transform: "translateY(60px)",
   },
   transition: {
-    duration: 2.3,
+    duration: 0.8,
     type: "tween",
-    ease: [0.25, 0.6, 0.3, 0.8],
+    ease: [0.22, 1, 0.36, 1],
   },
   animate: {
     opacity: 1,
@@ -30,17 +36,21 @@ export const motionTransitionAbout = {
   },
 };
 
-export const fadeIn = (direction: string, delay: number, opacity?: number) => {
+export const fadeIn = (
+  direction: string,
+  delay: number,
+  opacity?: number
+): Variants => {
   return {
     hidden: {
-      y: direction === "up" ? 80 : direction === "down" ? -80 : 0,
+      y: direction === "up" ? 40 : direction === "down" ? -40 : 0,
       opacity: 0,
-      x: direction === "left" ? 80 : direction === "right" ? -80 : 0,
+      x: direction === "left" ? 40 : direction === "right" ? -40 : 0,
       transition: {
         type: "tween",
-        duration: 1.5,
+        duration: 0.6,
         delay: delay,
-        ease: [0.25, 0.6, 0.3, 0.8],
+        ease: [0.22, 1, 0.36, 1],
       },
     },
     show: {
@@ -49,9 +59,9 @@ export const fadeIn = (direction: string, delay: number, opacity?: number) => {
       opacity: opacity || 1,
       transition: {
         type: "tween",
-        duration: 1.4,
+        duration: 0.55,
         delay: delay,
-        ease: [0.25, 0.25, 0.25, 0.75],
+        ease: [0.22, 1, 0.36, 1],
       },
     },
   };

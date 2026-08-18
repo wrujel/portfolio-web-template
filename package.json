@@ -6,27 +6,25 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint ."
   },
   "dependencies": {
-    "@tsparticles/engine": "^3.0.3",
-    "@tsparticles/react": "^3.0.0",
-    "framer-motion": "^10.16.16",
-    "next": "14.0.4",
-    "react": "^18",
+    "framer-motion": "^13.1.0",
+    "gsap": "^3.15.0",
+    "next": "^16.3.1",
+    "react": "^19.2.8",
     "react-countup": "^6.5.0",
-    "react-dom": "^18",
+    "react-dom": "^19.2.8",
     "react-icons": "^4.12.0",
-    "swiper": "^11.0.5",
-    "tsparticles": "^3.0.3"
+    "swiper": "^11.0.5"
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
     "autoprefixer": "^10.0.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.0.4",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.1",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"

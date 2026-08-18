@@ -3,46 +3,130 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --term: #070b07;
+  --panel: #0c120c;
+  --neon: #00ff66;
+  --amber: #ffb000;
+  --dim: #14301c;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom, transparent, #212130 50%)
-    rgb(var(--background-start-rgb));
+  color: #cfffd9;
+  background-color: var(--term);
   overflow-x: auto;
-  @media (min-width: 768px) {
+}
+
+@media (min-width: 768px) {
+  body {
     overflow-y: hidden;
   }
 }
 
-.text-secondary {
-  color: #0070f3;
-}
-
-.navbar-icon svg {
-  stroke: #0070f3;
-  fill: #0070f3;
-}
-
-#cover-background {
-  background: linear-gradient(
-    90.21deg,
-    rgba(33, 33, 48, 0.5) -5.91%,
-    rgba(57, 48, 74, 0.5) 111.58%
+/* CRT scanline overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.18) 3px,
+    rgba(0, 0, 0, 0.18) 4px
   );
-  display: flex;
-  min-height: 100vh;
-  background-repeat: no-repeat;
-  background-size: cover;
+  opacity: 0.35;
+}
+
+::selection {
+  background: var(--neon);
+  color: var(--term);
+}
+
+/* HUD panel with corner brackets */
+.hud {
+  position: relative;
+  border: 1px solid var(--dim);
+  background: rgba(12, 18, 12, 0.85);
+}
+
+.hud::before,
+.hud::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-style: solid;
+  border-color: var(--neon);
+}
+
+.hud::before {
+  top: -1px;
+  left: -1px;
+  border-width: 2px 0 0 2px;
+}
+
+.hud::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 2px 2px 0;
+}
+
+/* Swiper pagination → square neon bullets (rendered in .reviews-pagination below the card) */
+.reviews-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  border-radius: 0;
+  background: var(--panel);
+  border: 1px solid var(--dim);
+  opacity: 1;
+}
+
+.reviews-pagination .swiper-pagination-bullet-active {
+  background: var(--neon);
+  border-color: var(--neon);
+  box-shadow: 0 0 6px rgba(0, 255, 102, 0.45);
+}
+
+/* Swiper navigation → HUD arrow buttons (flank the card, mid-height) */
+.swiper .swiper-button-prev,
+.swiper .swiper-button-next {
+  width: 36px;
+  height: 36px;
+  background: rgba(12, 18, 12, 0.85);
+  border: 1px solid var(--dim);
+  color: var(--neon);
+  transition: all 0.15s;
+}
+
+.swiper .swiper-button-prev:hover,
+.swiper .swiper-button-next:hover {
+  border-color: var(--neon);
+  box-shadow: 0 0 6px rgba(0, 255, 102, 0.45);
+}
+
+.swiper .swiper-button-prev::after,
+.swiper .swiper-button-next::after {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Terminal scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--term);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--dim);
+  border: 1px solid var(--term);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon);
 }
