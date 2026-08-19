@@ -38,7 +38,7 @@
 </div>
 
 <div align='center'>
-  A modern portfolio website built with Next.js 14, TypeScript, and Tailwind CSS. Features smooth page transitions, interactive particle animations, service showcases, project galleries, customer testimonials, and a contact form.
+  A modern portfolio website built with Next.js 14, TypeScript, and Tailwind CSS. Features smooth page transitions, interactive particle animations, service showcases, project galleries, customer testimonials, and a contact form.d
 
   [Demo][demo-link] · [Report issue](/issues) · [Suggest something](/issues)
 </div>
@@ -206,7 +206,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 <!-- Status badges -->
 [demo]: https://img.shields.io/badge/🚀%20Live%20Demo-black?style=for-the-badge
-[demo-link]: {{DEMO_URL}}
+[demo-link]: https://portfolio-web-eight-tau.vercel.app
 [status]: https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fwrujel%2Fmonitor-repos%2Fmain%2Fdata%2Fportfolio-web-template.json&style=for-the-badge
 [status-link]: https://github.com/wrujel/monitor-repos
 [deploy]: https://img.shields.io/github/deployments/wrujel/portfolio-web-template/production?style=for-the-badge&label=Deploy
