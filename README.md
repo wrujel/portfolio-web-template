@@ -1,13 +1,12 @@
 <div align='center'>
 
-  [![demo][demo]][demo-link]
-  [![status][status]][status-link]
-  [![deploy][deploy]][deploy-link]
-  [![test][tests]][tests-link]
+[![demo][demo]][demo-link]
+[![status][status]][status-link]
+[![deploy][deploy]][deploy-link]
+[![test][tests]][tests-link]
 
 </div>
 
-<!-- TODO: Add a screenshot at /public/images/screenshot.png -->
 <div align='center'>
   <a href='/'>
     <img
@@ -24,23 +23,24 @@
 
 <div align='center'>
 
-  [![Next.js][nextjs]][nextjs-link]
-  [![TypeScript][typescript]][typescript-link]
-  [![Tailwind CSS][tailwindcss]][tailwindcss-link]
-  [![React][react]][react-link]
-  [![Framer Motion][framer-motion]][framer-motion-link]
-  [![tsParticles][tsparticles]][tsparticles-link]
-  [![Swiper][swiper]][swiper-link]
-  [![React CountUp][react-countup]][react-countup-link]
-  [![React Icons][react-icons]][react-icons-link]
-  [![Vercel][vercel]][vercel-link]
+[![Next.js][nextjs]][nextjs-link]
+[![TypeScript][typescript]][typescript-link]
+[![Tailwind CSS][tailwindcss]][tailwindcss-link]
+[![React][react]][react-link]
+[![Framer Motion][framer-motion]][framer-motion-link]
+[![GSAP][gsap]][gsap-link]
+[![Swiper][swiper]][swiper-link]
+[![React CountUp][react-countup]][react-countup-link]
+[![React Icons][react-icons]][react-icons-link]
+[![Vercel][vercel]][vercel-link]
 
 </div>
 
 <div align='center'>
-  A modern portfolio website built with Next.js 14, TypeScript, and Tailwind CSS. Features smooth page transitions, interactive particle animations, service showcases, project galleries, customer testimonials, and a contact form.d
+  A terminal-themed portfolio website built with Next.js 16, React 19, TypeScript, and Tailwind CSS. Features a GSAP-powered interactive dot grid background, CRT scanline and flicker effects, smooth page transitions, project galleries, service listings, customer testimonials, and a contact form.
 
-  [Demo][demo-link] · [Report issue](/issues) · [Suggest something](/issues)
+[Demo][demo-link] · [Report issue](/issues) · [Suggest something](/issues)
+
 </div>
 
 ## Table of Contents
@@ -53,6 +53,8 @@
   - [Installation](#installation)
   - [Running locally](#running-locally)
   - [Build](#build)
+  - [Linting](#linting)
+- [Environment Variables](#environment-variables)
 - [Project Structure](#project-structure)
 - [Demo](#demo)
 - [Contributing](#contributing)
@@ -60,28 +62,30 @@
 
 ## Features
 
-- [x] Smooth page transitions with Framer Motion
-- [x] Interactive particle animations on hero section
-- [x] Responsive design with Tailwind CSS
-- [x] Dark theme with custom color palette
-- [x] Service showcase with Swiper carousel
-- [x] Project gallery with expandable hover cards
-- [x] Customer testimonials slider
-- [x] Animated stat counters (experience, customers, projects, awards)
+- [x] Terminal/CRT visual theme with a neon phosphor palette and glow shadows
+- [x] Interactive GSAP dot grid background that reacts to cursor proximity with inertia-driven shockwaves
+- [x] CSS keyframe effects for scanline, flicker, blink, and marquee animations
+- [x] Smooth page transitions and scroll-reveal animations with Framer Motion
+- [x] Typewriter hero headline with a looping marquee word strip
+- [x] Multi-page App Router navigation (home, about, services, projects, customers, contacts)
+- [x] Fixed side rail navigation with `$ cd` command tooltips and active-route highlighting
+- [x] Project gallery with expandable hover cards and scroll-driven card selection on mobile
+- [x] Responsive services grid with staggered per-card animations
+- [x] Customer testimonials carousel powered by Swiper with pagination and navigation
+- [x] Animated stat counters (experience, customers, projects, awards) with React CountUp
+- [x] Tabbed about section covering skills, experience, education, and awards
 - [x] Contact form with name, email, and message fields
-- [x] Social media integration (Instagram, YouTube, TikTok, Pinterest, Twitter, Behance)
-- [x] Multi-page navigation with route-based sections
-- [x] Optimized image loading with skeleton animations
-- [x] Built with Next.js 14 App Router
+- [x] Monospace typography with JetBrains Mono and VT323 loaded through `next/font`
+- [x] Responsive design with Tailwind CSS, deployed on Vercel
 
 ## Tech Stack
 
-- [Next.js 14](https://nextjs.org/)
+- [Next.js 16](https://nextjs.org/)
+- [React 19](https://react.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [React](https://react.dev/)
 - [Framer Motion](https://motion.dev/)
-- [tsParticles](https://particles.js.org/)
+- [GSAP](https://gsap.com/)
 - [Swiper](https://swiperjs.com/)
 - [React CountUp](https://www.npmjs.com/package/react-countup)
 - [React Icons](https://react-icons.github.io/react-icons/)
@@ -91,7 +95,7 @@
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 20.9+
 - npm
 
 ### Installation
@@ -116,22 +120,42 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 npm run build
 ```
 
+Then serve the production build with:
+
+```bash
+npm run start
+```
+
+### Linting
+
+```bash
+npm run lint
+```
+
+## Environment Variables
+
+This project does not require any environment variables for basic usage.
+
 ## Project Structure
 
 ```
 /
 ├── public/
-│   └── assets/
-│       ├── avatar.png
-│       ├── about.png
-│       ├── avatar_with_tablet.png
-│       ├── project-1.png ... project-5.png
-│       └── review-1.jpg ... review-5.jpg
+│   ├── assets/
+│   │   ├── avatar.png
+│   │   ├── about.png
+│   │   ├── avatar_with_tablet.png
+│   │   ├── project-1.png ... project-5.png
+│   │   └── review-1.jpg ... review-5.jpg
+│   ├── next.svg
+│   ├── screenshot.png
+│   └── vercel.svg
 ├── src/
 │   ├── app/
 │   │   ├── layout.tsx
 │   │   ├── page.tsx
 │   │   ├── globals.css
+│   │   ├── favicon.ico
 │   │   ├── about/
 │   │   ├── contacts/
 │   │   ├── customers/
@@ -149,10 +173,14 @@ npm run build
 │   │   ├── Navbar/
 │   │   ├── Projects/
 │   │   ├── Services/
-│   │   └── Transition/
+│   │   ├── Transition/
+│   │   └── ui/
+│   │       └── DotGrid.tsx
 │   └── utils/
 │       └── motionTransition.ts
+├── eslint.config.mjs
 ├── next.config.js
+├── postcss.config.js
 ├── tailwind.config.ts
 ├── tsconfig.json
 └── package.json
@@ -181,30 +209,33 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 <!-- Badges -->
+
 [nextjs]: https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js
 [typescript]: https://img.shields.io/badge/Typescript-007ACC?style=for-the-badge&logo=typescript&logoColor=white&color=blue
 [tailwindcss]: https://img.shields.io/badge/Tailwind%20CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
 [react]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [framer-motion]: https://img.shields.io/badge/Framer%20Motion-2A2A2A?style=for-the-badge&logo=npm&logoColor=white
-[tsparticles]: https://img.shields.io/badge/Tsparticles-2A2A2A?style=for-the-badge&logo=npm&logoColor=white
+[gsap]: https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=white
 [swiper]: https://img.shields.io/badge/Swiper-6332D2?style=for-the-badge&logo=swiper&logoColor=white
 [react-countup]: https://img.shields.io/badge/React%20Countup-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-icons]: https://img.shields.io/badge/React--Icons-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [vercel]: https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white
 
 <!-- Badge links -->
+
 [nextjs-link]: https://nextjs.org/
 [typescript-link]: https://www.typescriptlang.org/
 [tailwindcss-link]: https://tailwindcss.com/
 [react-link]: https://react.dev/
 [framer-motion-link]: https://motion.dev/
-[tsparticles-link]: https://particles.js.org/
+[gsap-link]: https://gsap.com/
 [swiper-link]: https://swiperjs.com/
 [react-countup-link]: https://www.npmjs.com/package/react-countup
 [react-icons-link]: https://react-icons.github.io/react-icons/
 [vercel-link]: https://vercel.com/
 
 <!-- Status badges -->
+
 [demo]: https://img.shields.io/badge/🚀%20Live%20Demo-black?style=for-the-badge
 [demo-link]: https://portfolio-web-eight-tau.vercel.app
 [status]: https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fwrujel%2Fmonitor-repos%2Fmain%2Fdata%2Fportfolio-web-template.json&style=for-the-badge
