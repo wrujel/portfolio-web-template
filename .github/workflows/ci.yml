@@ -1,0 +1,86 @@
+# Lint, typecheck, unit tests + coverage, and a production build.
+#
+# The Content Studio's scheduler dispatches this daily and then READS the run:
+# its conclusion becomes the project's "unit tests" tag, and the
+# MONITOR_COVERAGE line below becomes its "coverage %" tag and the shields
+# endpoint the studio publishes. Nothing is committed here and no secret is
+# needed. The README is maintained by the studio -- do not add badges by hand.
+name: CI
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+# A newer run supersedes an in-flight one on the same ref, so the daily dispatch
+# does not queue behind a push.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    name: Lint, test and build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Must precede setup-node so that `cache: pnpm` finds the binary. The
+      # version comes from the packageManager field in package.json.
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Tests run before the other gates so the studio still gets a real
+      # percentage when a lint nit or a type error trips the build.
+      # json-summary is what the studio parses; lcov is kept for humans.
+      - name: Run tests with coverage
+        run: >-
+          pnpm vitest run --coverage
+          --reporter=default
+          --reporter=json
+          --outputFile.json=.vitest.json
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Build
+        run: pnpm build
+
+      # `always()`: a failing suite still measured something, and the studio
+      # shows the red tag NEXT TO a real percentage.
+      - name: Report tests and coverage to the studio
+        if: always()
+        run: |
+          node -e '
+            const fs = require("fs");
+            const out = { pct: null };
+            try {
+              const t = JSON.parse(fs.readFileSync("coverage/coverage-summary.json", "utf8")).total.lines;
+              // Nothing instrumented is unknown, not 0% -- leave pct null.
+              if (t.total > 0) {
+                out.pct = t.pct;
+                out.lines = { covered: t.covered, total: t.total };
+              }
+            } catch {}
+            try {
+              const r = JSON.parse(fs.readFileSync(".vitest.json", "utf8"));
+              out.tests = { passed: r.numPassedTests, failed: r.numFailedTests, skipped: r.numPendingTests };
+            } catch {}
+            console.log("::notice title=coverage::MONITOR_COVERAGE " + JSON.stringify(out));
+          '
