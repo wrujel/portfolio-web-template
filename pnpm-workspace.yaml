@@ -1,5 +1,13 @@
 # pnpm settings. pnpm 11 reads these from here rather than from package.json.
 
+# Not a monorepo: this repo has one package at the root. The list is here
+# because pnpm 9 -- which is what Vercel picks from a lockfileVersion 9.0
+# lockfile -- reads this file strictly as a workspace manifest and fails the
+# install with "packages field missing or empty" without it. pnpm 10+ allows
+# the file to carry settings alone.
+packages:
+  - .
+
 # Dependencies whose install/build scripts are allowed to run; everything else
 # is blocked by default. Both keys are listed on purpose: `allowBuilds` is the
 # pnpm 11 spelling, `onlyBuiltDependencies` the pnpm 10 one, and CI/Vercel may
