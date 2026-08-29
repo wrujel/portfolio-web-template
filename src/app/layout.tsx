@@ -7,13 +7,13 @@ import DotGrid from "@/components/ui/DotGrid";
 
 const mono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-jetbrains-mono",
 });
 
 const display = VT323({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-display",
+  variable: "--font-vt323",
 });
 
 export const metadata: Metadata = {

@@ -1,0 +1,12 @@
+# pnpm settings. pnpm 11 reads these from here rather than from package.json.
+
+# Dependencies whose install/build scripts are allowed to run; everything else
+# is blocked by default. Both keys are listed on purpose: `allowBuilds` is the
+# pnpm 11 spelling, `onlyBuiltDependencies` the pnpm 10 one, and CI/Vercel may
+# resolve either major from the v9 lockfile.
+allowBuilds:
+  # Native resolver used by eslint-config-next's import plugin.
+  unrs-resolver: true
+
+onlyBuiltDependencies:
+  - unrs-resolver

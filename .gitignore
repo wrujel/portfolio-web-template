@@ -34,3 +34,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# pnpm
+.pnpm-store/
+
+# vitest json reporter output
+.vitest.json
+
+# dependency audit report (generated in CI)
+audit.json

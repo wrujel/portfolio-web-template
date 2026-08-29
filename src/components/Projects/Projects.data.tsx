@@ -4,7 +4,7 @@ import {
   SiReact,
   SiBootstrap,
   SiMysql,
-  SiCss3,
+  SiCss,
   SiNodedotjs,
   SiExpress,
   SiDocker,
@@ -59,7 +59,7 @@ export const cardContent = [
     imageUrl: "/assets/project-2.png",
     skills: [
       {
-        icon: <SiCss3 size="40" />,
+        icon: <SiCss size="40" />,
       },
       {
         icon: <SiNodedotjs size="40" />,
