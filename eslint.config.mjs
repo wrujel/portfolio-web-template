@@ -2,7 +2,13 @@ import next from "eslint-config-next/core-web-vitals";
 
 const eslintConfig = [
   {
-    ignores: [".next/**", "out/**", "node_modules/**", "next-env.d.ts"],
+    ignores: [
+      ".next/**",
+      "out/**",
+      "coverage/**",
+      "node_modules/**",
+      "next-env.d.ts",
+    ],
   },
   ...next,
 ];
