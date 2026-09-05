@@ -11,7 +11,7 @@
   <a href='/'>
     <img
       src='screenshot.webp'
-      alt='Screenshot of the app'
+      alt='Terminal-themed portfolio with a green dot-grid background, a zsh window reading Imagine it, then code it, and an avatar marked Status: Online.'
       width='100%'
     />
   </a>
@@ -37,7 +37,7 @@
 </div>
 
 <div align='center'>
-  A terminal-themed portfolio website built with Next.js 16, React 19, TypeScript, and Tailwind CSS. Features a GSAP-powered interactive dot grid background, CRT scanline and flicker effects, smooth page transitions, project galleries, service listings, customer testimonials, and a contact form.
+  A terminal-themed portfolio website built with Next.js 16, React 19, TypeScript and Tailwind CSS. A GSAP dot-grid background reacts to cursor proximity with inertia-driven shockwaves behind CRT scanline, flicker and marquee effects, a typewriter hero and Framer Motion page transitions. Six App Router pages cover projects with expandable hover cards, a staggered services grid, a Swiper testimonials carousel, animated stat counters and a contact form.
 
 [Demo][demo-link] · [Report issue](/issues) · [Suggest something](/issues)
 
