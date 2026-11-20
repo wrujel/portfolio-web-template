@@ -16,7 +16,7 @@
   "dependencies": {
     "framer-motion": "^13.1.1",
     "gsap": "^3.15.0",
-    "next": "^16.3.8",
+    "next": "^16.4.6",
     "react": "^19.2.8",
     "react-countup": "^6.5.3",
     "react-dom": "^19.2.8",
@@ -32,13 +32,13 @@
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.5",
     "@vitejs/plugin-react": "^6.1.1",
-    "@vitest/coverage-v8": "^4.1.11",
+    "@vitest/coverage-v8": "^4.1.12",
     "eslint": "^9.39.5",
-    "eslint-config-next": "^16.3.8",
+    "eslint-config-next": "^16.4.6",
     "jsdom": "^30.0.1",
     "postcss": "^8.5.26",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3",
-    "vitest": "^4.1.11"
+    "vitest": "^4.1.12"
   }
 }
